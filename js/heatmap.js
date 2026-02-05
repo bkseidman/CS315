@@ -36,6 +36,7 @@ function setup() {
     data[year][month] += p;
   }
 
+  years = years.filter(y => y !== "2017");
   years.sort();
   drawHeatmap();
 }
@@ -58,7 +59,8 @@ function drawHeatmap() {
   }
 
   // --- draw cells ---
-  noStroke();
+  stroke(220);      // faint grid lines
+  strokeWeight(1);
   for (let c = 0; c < years.length; c++) {
     const year = years[c];
     for (let r = 0; r < 12; r++) {
